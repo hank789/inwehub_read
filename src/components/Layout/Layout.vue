@@ -46,7 +46,7 @@ export default {
   box-shadow: none;
 }
 .container {
-  margin: 0 auto;
+  margin: 0 15px;
 }
 .little-nav{
   height:30px;
