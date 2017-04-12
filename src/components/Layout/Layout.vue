@@ -46,7 +46,7 @@ export default {
   box-shadow: none;
 }
 .container {
-  margin: 0 15px;
+  margin: 0 auto;
 }
 .little-nav{
   height:30px;
@@ -85,5 +85,8 @@ export default {
 }
 @media screen and (min-width: 1201px) {
   .container { width: 960px }
+}
+@media screen and (max-width: 769px) {
+  .container { padding:0 15px; }
 }
 </style>
