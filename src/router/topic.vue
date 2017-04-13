@@ -34,6 +34,9 @@ export default {
   name: 'topic',
   created () {
     this.$store.dispatch(ACTION_TYPES.TOPIC.FETCH, { refresh: true, init: true })
+    this.intervalid2 = setInterval(() => {
+      this.$store.dispatch(ACTION_TYPES.TOPIC.FETCH_NEW_COUNT)
+    }, 3000)
   },
   computed: {
     ...mapState({
@@ -51,7 +54,10 @@ export default {
       this.$store.dispatch(ACTION_TYPES.TOPIC.FETCH, {})
     }
   },
-  components: { layout, topicItem, itemList }
+  components: { layout, topicItem, itemList },
+  beforeDestroy () {
+    clearInterval(this.intervalid2)
+  }
 }
 </script>
 
