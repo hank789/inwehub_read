@@ -7,9 +7,6 @@
           <router-link key="topicpage" to="/">
             <div class="tag">热门话题</div>
           </router-link>
-          <router-link key="newspage" to="/news">
-            <div class="tag">最新资讯</div>
-          </router-link>
         </div>
       </div>
     </div>
