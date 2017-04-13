@@ -1,6 +1,6 @@
 <template>
   <div v-if="isLoadAll">
-    <p class="bottomText" style={{display: "none"}}>-- 我是有底线的 --</p>
+    <p class="bottomText" :style="{display:null}">-- 我是有底线的 --</p>
   </div>
   <div v-else>
     <div class="listButtonFix">
