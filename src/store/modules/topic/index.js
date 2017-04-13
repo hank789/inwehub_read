@@ -179,6 +179,9 @@ export default {
       } else {
         count = Number(count)
       }
+
+      state.newTopicCount = count
+
       // if (typeof document !== "undefined") {
       //   if (count === 0) {
       //     document.title = CONFIG.TITLE;
@@ -186,7 +189,7 @@ export default {
       //     document.title = `(${count})${CONFIG.TITLE}`;
       //   }
       // }
-      return { ...state, newTopicCount: count }
+      // return { ...state, newTopicCount: count }
     },
     [BEFORE_FETCH] (state) {
       state.loading = true
