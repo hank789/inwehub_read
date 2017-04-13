@@ -37,7 +37,7 @@
 
 <script>
 import moment from 'moment'
-import articlePad from './articlePad'
+import articlePad from './ArticlePad'
 import logic from './logic'
 import {typeset, beautySummary, splitTitle} from '../../utils/format'
 
