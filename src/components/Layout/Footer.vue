@@ -7,7 +7,7 @@
         <span class="line"></span>
       </div>
       <div class="copy-right">
-        © 2017 NoCode &nbsp; 浙 ICP 备 17005035 号 -1
+        © 2017 Inwehub &nbsp
       </div>
     </div>
   </div>
