@@ -5,7 +5,7 @@
       <div class="container">
         <div class="nav" >
           <router-link key="topicpage" to="/">
-            <div class="tag">热门话题</div>
+            <div class="tag">值读推荐</div>
           </router-link>
         </div>
       </div>
