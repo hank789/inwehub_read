@@ -1,15 +1,15 @@
 <template>
   <div>
     <layout>
-      <div :class="['newTopicNotice', 'noticeMobile', {hide:newTopicCount == 0}]" @click="refreshNews">有 {{newTopicCount}} 个新话题，点击查看</div>
+      <div :class="['newTopicNotice', 'noticeMobile', {hide:newNewsCount == 0}]" @click="refreshNews">有 {{newNewsCount}} 个新资讯，点击查看</div>
 
       <item-list
       :loading="loading"
       :isLoadAll="isLoadAll"
       :onLoadMoreClick="onLoadMoreClick"
       >
-        <topic-item
-        v-for="(topic, index) of topics"
+        <news-item
+        v-for="(topic, index) of articles"
         :key="topic.id"
         :topic="topic"
         :isLastRead="false"
@@ -27,44 +27,44 @@
 <script>
 import { mapState } from 'vuex'
 import layout from '@/components/Layout/Layout.vue'
-import topicItem from '@/components/TopicItem/TopicItem.vue'
+import newsItem from '@/components/News/NewsItem.vue'
 import itemList from '@/components/ItemList/ItemList.vue'
 import { MUTATION_TYPES, ACTION_TYPES } from '@/constants'
 
 export default {
-  name: 'topic',
+  name: 'news',
   created () {
-    this.$store.dispatch(ACTION_TYPES.TOPIC.FETCH, { refresh: true, init: true })
+    this.$store.dispatch(ACTION_TYPES.NEWS.FETCH, { refresh: true, init: true })
     this.intervalid2 = setInterval(() => {
-      this.$store.dispatch(ACTION_TYPES.TOPIC.FETCH_NEW_COUNT)
+      this.$store.dispatch(ACTION_TYPES.NEWS.FETCH_NEW_COUNT)
     }, 30000)
   },
   computed: {
     ...mapState({
-      topics: state => state.topic.data,
-      openList: state => state.topic.openList || [],
-      loading: state => state.topic.loading,
-      isLoadAll: state => state.topic.isLoadAll,
-      newTopicCount: state => state.topic.newTopicCount
+      articles: state => state.news.data,
+      openList: state => state.news.openList || [],
+      loading: state => state.news.loading,
+      isLoadAll: state => state.news.isLoadAll,
+      newNewsCount: state => state.news.newNewsCount
     })
   },
   watch: {
-    newTopicCount: function (val, oldVal) {
+    newNewsCount: function (val, oldVal) {
       val > 0 ? document.title = document.title + '(' + val + ')' : 0
     }
   },
   methods: {
     onTopicClick (collapseKey) {
-      this.$store.commit(MUTATION_TYPES.TOPIC.OPEN_STATE_CHANGE, { collapseKey })
+      this.$store.commit(MUTATION_TYPES.NEWS.OPEN_STATE_CHANGE, { collapseKey })
     },
     onLoadMoreClick () {
-      this.$store.dispatch(ACTION_TYPES.TOPIC.FETCH, {})
+      this.$store.dispatch(ACTION_TYPES.NEWS.FETCH, {})
     },
     refreshNews () {
-      this.$store.dispatch(ACTION_TYPES.TOPIC.FETCH, { refresh: true, init: false })
+      this.$store.dispatch(ACTION_TYPES.NEWS.FETCH, { refresh: true, init: false })
     }
   },
-  components: { layout, topicItem, itemList },
+  components: { layout, newsItem, itemList },
   beforeDestroy () {
     clearInterval(this.intervalid2)
   }

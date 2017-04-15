@@ -4,8 +4,11 @@
     <div class="little-nav">
       <div class="container">
         <div class="nav" >
-          <router-link key="topicpage" to="/">
+          <router-link key="topicpage" :to="{ name: 'Topic' }" exact>
             <div class="tag">值读推荐</div>
+          </router-link>
+          <router-link key="newspage" :to="{ name: 'News' }">
+            <div class="tag">相关资讯</div>
           </router-link>
         </div>
       </div>
@@ -73,6 +76,9 @@ export default {
   &.active{
     background: #78909C;
   }
+}
+.router-link-active{
+  background: #78909C;
 }
 @media screen and (min-width: 769px) {
   .container { width: 718px }

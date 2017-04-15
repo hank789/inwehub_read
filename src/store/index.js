@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 
 import topic from './modules/topic'
+import news from './modules/news'
 // import * as getters from './getters'
 // import * as actions from './actions'
 
@@ -13,7 +14,7 @@ export default new Vuex.Store({
   // getters,
   // actions,
   modules: {
-    topic
+    topic, news
   },
   strict: debug
 })
