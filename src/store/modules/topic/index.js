@@ -83,7 +83,7 @@ export default {
         if (!topics[i] || !topics[i].order) {
           continue
         }
-        if (topics[i].order > 1000000) {
+        if (topics[i].isTop > 0) {
           topCount++
           continue
         }

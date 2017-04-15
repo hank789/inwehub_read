@@ -14,7 +14,7 @@
         :topic="topic"
         :isLastRead="false"
         :isFirst="index === 0"
-        :isTop="topic.order && topic.order > 1000000"
+        :isTop="topic.isTop && topic.isTop > 0"
         :openList="openList"
         :onTopicClick="onTopicClick"
         />

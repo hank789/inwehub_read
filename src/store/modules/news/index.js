@@ -80,10 +80,10 @@ export default {
       let latestOrder = null
       let topCount = 0
       for (const i in news) {
-        if (!news[i] || !news[i].order) {
+        if (!news[i]) {
           continue
         }
-        if (news[i].order > 1000000) {
+        if (news[i].isTop > 0) {
           topCount++
           continue
         }
