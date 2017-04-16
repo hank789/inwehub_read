@@ -50,7 +50,7 @@ export default {
   },
   watch: {
     newNewsCount: function (val, oldVal) {
-      val > 0 ? document.title = document.title + '(' + val + ')' : 0
+      val > 0 ? document.title = '(' + val + ')' + document.title : 0
     }
   },
   methods: {
