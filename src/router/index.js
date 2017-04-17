@@ -15,8 +15,7 @@ export default new Router({
     {
       path: '/news',
       name: 'News',
-      component: News,
-      meta: {analytics: 'news'}
+      component: News
     }
   ]
 })

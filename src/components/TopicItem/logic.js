@@ -178,7 +178,7 @@ function mergeSimilar (articles, isMobile) {
   //   return `<a href="${url}" target="${isMobile ? '_self' : '_blank'}">${escape(source)}</a>`
   // }
 
-  if (!articles || articles.length <= 1) {
+  if (!articles) {
     return articles
   }
   const simList = []
