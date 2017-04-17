@@ -77,7 +77,7 @@ const ARTICLE_KEY_MAP = {
         url = article.mobileUrl
       }
       return {
-        source: article.siteName,
+        source: article.siteName + '/' + article.authorName,
         url
       }
     },
@@ -228,9 +228,8 @@ function mergeSimilar (articles, isMobile) {
       }
       if (art.siteName) {
         let siteName = art.siteName
-        if (siteName === '微信公众号') {
-          siteName = art.authorName
-        }
+        let authorName = art.authorName
+
         if (sites.length >= 3) {
           sites.push('more')
           break
@@ -244,8 +243,11 @@ function mergeSimilar (articles, isMobile) {
         if (isMobile && art.mobileUrl) {
           url = art.mobileUrl
         }
+        if (authorName) {
+          authorName = ' / ' + authorName
+        }
         sites.push({
-          source: siteName,
+          source: siteName + authorName,
           url
         })
         // let _name = art.siteName;
