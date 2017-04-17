@@ -50,7 +50,7 @@ export default {
 }
 .little-nav{
   height:30px;
-  background: #607D8B;
+  background: #174a61;
 }
 .little-nav .container .nav{
   height:30px!important;

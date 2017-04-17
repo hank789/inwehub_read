@@ -30,6 +30,7 @@ import layout from '@/components/Layout/Layout.vue'
 import newsItem from '@/components/News/NewsItem.vue'
 import itemList from '@/components/ItemList/ItemList.vue'
 import { MUTATION_TYPES, ACTION_TYPES } from '@/constants'
+import CONFIG from '@/api/config'
 
 export default {
   name: 'news',
@@ -50,7 +51,7 @@ export default {
   },
   watch: {
     newNewsCount: function (val, oldVal) {
-      val > 0 ? document.title = '(' + val + ')' + document.title : 0
+      val > 0 ? document.title = '(' + val + ')' + CONFIG.TITLE : 0
     }
   },
   methods: {
