@@ -33,7 +33,7 @@
 import moment from 'moment'
 import articlePad from './ArticlePad'
 import logic from './logic'
-import {typeset, beautySummary, splitTitle} from '../../utils/format'
+import {typeset, beautySummary} from '../../utils/format'
 
 // import CollapseTransition from 'element-ui/src/transitions/collapse-transition'
 
@@ -66,7 +66,7 @@ export default {
       return (!this.isRelated && this.isTop) ? TOP_TEXT : publishTime
     },
     titleSplits () {
-      return splitTitle(typeset(this.topic.title))
+      return [typeset(this.topic.title), '']
     },
     summary () {
       return typeset(this.topic.summary)
