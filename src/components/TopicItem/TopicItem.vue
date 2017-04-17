@@ -4,13 +4,8 @@
     <hr v-if="!(!isRelated && isFirst)" class="bottom_hr" />
     <div class="info"
       :class="{
-      'expaned' : isOpen,
-      'enterHover': hover,
-      'leaveHover': !hover}"
-      @touchstart="_enterHover"
-      @touchend="_leaveHover"
-      @mouseover="_enterHover"
-      @mouseout="_leaveHover"
+      'expaned' : isOpen
+      }"
       @click="_onTopicClick">
       <div class="left">
         <div class="title">
@@ -19,7 +14,6 @@
             {{titleSplits[1]}}
             <span class="time">{{timeText}}</span>
           </div>
-          <span class="toggleIcon" :class="{ 'up':isOpen, 'down':!isOpen}">
           </span>
         </div>
         <div v-if="summary" class="description">
