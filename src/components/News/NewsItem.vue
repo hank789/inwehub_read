@@ -109,7 +109,7 @@ export default {
         .left{
             display: inline-block;
             box-sizing: border-box;
-            width: 90%;
+            width: 100%;
             .title{
                 font-size: @fontSizeTitle;
                 line-height: @lineHeightTitle;
