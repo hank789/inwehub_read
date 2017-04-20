@@ -93,6 +93,7 @@ a {
 }
 
 .newTopicNotice {
+  cursor: pointer;
   border: 1px solid #dadbde;
   color: #2c5686;
   background-color: #fcfae2;
