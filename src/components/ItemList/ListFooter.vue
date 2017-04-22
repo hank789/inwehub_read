@@ -1,6 +1,11 @@
 <template>
   <div v-if="isLoadAll">
     <p class="bottomText" :style="{display:null}">-- 我是有底线的 --</p>
+    <aside class="return_top" @click="backTop" v-if="showBackStatus">
+      <svg class="back_top_svg">
+        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#backtop"></use>
+      </svg>
+    </aside>
   </div>
   <div v-else>
     <div class="listButtonFix">
@@ -8,13 +13,28 @@
         {{info}}
       </el-button>
     </div>
+    <div class="ant-back-top" style="right: 40px; bottom: 40px;" @click="backTop" v-if="showBackStatus">
+      <div class="ant-back-top-content">
+        <i class="anticon anticon-to-top ant-back-top-icon"></i>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
+import {showBack, animate} from '../../utils/mUtils'
 export default {
   name: 'listFooter',
   props: ['isLoadAll', 'loading', 'onLoadMoreClick'],
+  data () {
+    return {
+      //  显示返回顶部按钮
+      showBackStatus: false
+    }
+  },
+  mounted () {
+    this.initData()
+  },
   computed: {
     info () {
       let info = '点击加载更多'
@@ -22,6 +42,18 @@ export default {
         info = '正在加载中...'
       }
       return info
+    }
+  },
+  methods: {
+    async initData () {
+      //  开始监听scrollTop的值，达到一定程度后显示返回顶部按钮
+      showBack(status => {
+        this.showBackStatus = status
+      })
+    },
+    //  返回顶部
+    backTop () {
+      animate(document.body, {scrollTop: '0'}, 400, 'ease-out')
     }
   }
 }
@@ -56,5 +88,44 @@ export default {
     color:#607D8B;
     border-color:#607D8B;
   }
+}
+.ant-back-top {
+  z-index: 10;
+  position: fixed;
+  right: 100px;
+  bottom: 50px;
+  height: 40px;
+  width: 40px;
+  cursor: pointer;
+}
+.ant-back-top-content {
+  height: 40px;
+  width: 40px;
+  border-radius: 20px;
+  background-color: rgba(64,64,64,.4);
+  color: #fff;
+  text-align: center;
+}
+.ant-back-top-icon {
+  font-size: 20px;
+  margin-top: 10px;
+}
+.anticon {
+  display: inline-block;
+  font-style: normal;
+  vertical-align: baseline;
+  text-align: center;
+  text-transform: none;
+  line-height: 1;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.anticon-to-top:before {
+  content: "\21E7";
+}
+.anticon:before {
+  display: block;
+  font-family: anticon!important;
 }
 </style>
