@@ -1,11 +1,11 @@
 <template>
   <div v-if="isLoadAll">
     <p class="bottomText" :style="{display:null}">-- 我是有底线的 --</p>
-    <aside class="return_top" @click="backTop" v-if="showBackStatus">
-      <svg class="back_top_svg">
-        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#backtop"></use>
-      </svg>
-    </aside>
+    <div class="ant-back-top" style="right: 40px; bottom: 40px;" @click="backTop" v-if="showBackStatus">
+      <div class="ant-back-top-content">
+        <i class="anticon anticon-to-top ant-back-top-icon"></i>
+      </div>
+    </div>
   </div>
   <div v-else>
     <div class="listButtonFix">
