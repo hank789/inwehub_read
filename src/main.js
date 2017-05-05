@@ -6,8 +6,15 @@ import App from './App'
 import store from './store'
 import router from './router'
 import VueAnalytics from 'vue-ua'
+import Raven from 'raven-js'
+import RavenVue from 'raven-js/plugins/vue'
 
 Vue.config.productionTip = false
+
+Raven
+  .config('https://9e8e59b7c54143c38b8ec1f152e05268@sentry.io/165153')
+  .addPlugin(RavenVue, Vue)
+  .install()
 
 Vue.use(Button)
 Vue.use(Row)
